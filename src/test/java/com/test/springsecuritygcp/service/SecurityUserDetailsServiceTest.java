@@ -27,7 +27,7 @@ public class SecurityUserDetailsServiceTest {
   }
 
   @Test
-  public void testLoadUserByUsername_Success() {
+  public void testLoadUserByUsernameSuccess() {
     // Arrange
     String username = "testuser";
     SecurityUser mockUser =
@@ -55,7 +55,7 @@ public class SecurityUserDetailsServiceTest {
   }
 
   @Test
-  public void testLoadUserByUsername_UserNotFound() {
+  public void testLoadUserByUsernameUserNotFound() {
     // Arrange
     String username = "unknownuser";
     when(securityUserRepository.findByUsername(username)).thenReturn(Optional.empty());

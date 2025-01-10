@@ -7,5 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 class SpringsecuritygcpApplicationTests {
 
   @Test
-  void contextLoads() {}
+  void contextLoads() {
+    System.out.println("Test context load.");
+  }
 }
