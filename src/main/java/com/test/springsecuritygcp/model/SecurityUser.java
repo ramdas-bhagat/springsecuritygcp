@@ -1,7 +1,5 @@
 package com.test.springsecuritygcp.model;
 
-import java.util.Set;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
@@ -10,6 +8,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import java.util.Set;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -23,17 +22,16 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor // Required for @Builder
 public class SecurityUser {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
 
-    @Column(unique = true, nullable = false)
-    private String username;
+  @Column(unique = true, nullable = false)
+  private String username;
 
-    @Column(nullable = false)
-    private String password;
+  @Column(nullable = false)
+  private String password;
 
-    @ElementCollection(fetch = FetchType.EAGER)
-    private Set<String> roles;
-    
+  @ElementCollection(fetch = FetchType.EAGER)
+  private Set<String> roles;
 }
