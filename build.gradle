@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'com.test'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.1'
 
 java {
 	toolchain {
@@ -40,4 +40,24 @@ dependencies {
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+tasks.register('copyLatestJar', Copy) {
+    dependsOn 'build'  // Ensure the build task runs first
+
+    from("${buildDir}/libs")
+    into("${buildDir}/libs/latest")
+    include('*.jar')
+    exclude('*-plain.jar')
+
+	doLast {
+        println("Build and copy of jar is done.")
+    }
+}
+
+tasks.register('buildAndCopy') {
+    dependsOn 'build', 'copyLatestJar'
+    doLast {
+        println 'Build and copy completed!'
+    }
 }
