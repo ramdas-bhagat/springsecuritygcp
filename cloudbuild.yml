@@ -44,7 +44,7 @@ options:
   logging: CLOUD_LOGGING_ONLY
 substitutions:
   _SERVICE_NAME: springsecuritygcptest
-  _TRIGGER_ID: 085f807a-b66e-459d-b9f2-7808d144b230
+  _TRIGGER_ID: e8eca195-9a58-4728-b156-5599a84ccd6a
   _DEPLOY_REGION: us-central1
   _AR_HOSTNAME: us-central1-docker.pkg.dev
   _PLATFORM: managed
