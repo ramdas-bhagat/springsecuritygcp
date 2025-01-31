@@ -24,28 +24,29 @@ public class SecurityConfig {
   // to db based.
   // @Bean
   public UserDetailsService getUserDetailsService(PasswordEncoder passwordEncoder) {
-    UserDetails userDetails = User.builder()
-        .username("user")
-        .password("User@123")
-        .passwordEncoder(passwordEncoder::encode)
-        .roles("USER")
-        .build();
+    UserDetails userDetails =
+        User.builder()
+            .username("user")
+            .password("User@123")
+            .passwordEncoder(passwordEncoder::encode)
+            .roles("USER")
+            .build();
 
-    UserDetails adminDetails = User.builder()
-        .username("admin")
-        .password("Admin@123")
-        .passwordEncoder(passwordEncoder::encode)
-        .roles("USER", "ADMIN")
-        .build();
+    UserDetails adminDetails =
+        User.builder()
+            .username("admin")
+            .password("Admin@123")
+            .passwordEncoder(passwordEncoder::encode)
+            .roles("USER", "ADMIN")
+            .build();
 
     return new InMemoryUserDetailsManager(userDetails, adminDetails);
   }
 
   @Bean
   public SecurityFilterChain getSecurityFilterChain(HttpSecurity http) throws Exception {
-    http.authorizeHttpRequests(auth -> auth
-        .requestMatchers("/api/v1/public/**").permitAll()
-        .anyRequest().authenticated());
+    http.authorizeHttpRequests(
+        auth -> auth.requestMatchers("/api/v1/public/**").permitAll().anyRequest().authenticated());
 
     http.formLogin(Customizer.withDefaults());
     // http.httpBasic(Customizer.withDefaults());
