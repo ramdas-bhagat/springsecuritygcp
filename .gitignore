@@ -25,3 +25,22 @@ replay_pid*
 
 .gradle
 /build
+/bin
+/.idea/
+*.iml
+.classpath
+.project
+.settings/
+.vscode/
+out/
+target/
+generated/
+tmp/
+logs/
+/gradle/wrapper/*.jar
+.DS_Store
+Thumbs.db
+desktop.ini
+.env
+.env.local
+node_modules/
