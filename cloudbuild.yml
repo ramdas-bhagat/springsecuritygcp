@@ -1,5 +1,5 @@
 steps:
-  - name: "gradle:8.11-jdk21"
+  - name: "gradle:8.14-jdk21"
     args:
       - clean
       - buildAndCopy
